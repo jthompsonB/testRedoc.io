@@ -1,0 +1,18 @@
+type: object
+properties:
+  flagID:
+    type: string
+    format: uuid
+  code:
+    type: string
+    nullable: true
+  placement:
+    type: integer
+    format: int32
+  description:
+    type: string
+    nullable: true
+  rowUpdated:
+    type: string
+    format: date-time
+additionalProperties: false

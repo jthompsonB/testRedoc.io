@@ -1,0 +1,16 @@
+required:
+  - date
+  - retail1
+  - storeId
+type: object
+properties:
+  storeId:
+    type: string
+    format: uuid
+  date:
+    type: string
+    format: date-time
+  retail1:
+    type: number
+    format: double
+additionalProperties: false

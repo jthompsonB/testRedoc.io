@@ -1,0 +1,46 @@
+post:
+  tags:
+    - Items
+  summary: "Adds an Image as an Attached File to an Item.\r\n\r\nUser's client *MUST* be 366+ with cloud storage enabled"
+  parameters:
+    - name: itemId
+      in: path
+      description: Item Id
+      required: true
+      schema:
+        type: string
+        description: Item Id
+        format: uuid
+    - name: description
+      in: query
+      description: Description or Title of the Image file
+      schema:
+        type: string
+        description: Description or Title of the Image file
+        nullable: true
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            file:
+              type: string
+              description: Image file
+              format: binary
+              nullable: true
+        encoding:
+          file:
+            style: form
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GenericObject'

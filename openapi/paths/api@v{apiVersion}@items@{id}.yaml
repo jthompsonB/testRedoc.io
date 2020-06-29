@@ -1,0 +1,66 @@
+get:
+  tags:
+    - Items
+  summary: Gets an Item by Id
+  parameters:
+    - name: id
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        format: uuid
+    - name: Filter
+      in: query
+      description: "### Filter Options:\r\n- active\r\n- lastUpdated\r\n- levelId\r\n- sku"
+      schema:
+        type: array
+        items:
+          type: string
+        description: "### Filter Options:\r\n- active\r\n- lastUpdated\r\n- levelId\r\n- sku"
+        nullable: true
+    - name: Expand
+      in: query
+      description: "### Expand Options:\r\n- stores\r\n- vendors\r\n- images (available on database versions above 366)"
+      schema:
+        type: array
+        items:
+          type: string
+        description: "### Expand Options:\r\n- stores\r\n- vendors\r\n- images (available on database versions above 366)"
+        nullable: true
+    - name: OrderBy
+      in: query
+      description: "### Order By Options:\r\n- sku\r\n- description\r\n- itemId"
+      schema:
+        type: array
+        items:
+          type: string
+        description: "### Order By Options:\r\n- sku\r\n- description\r\n- itemId"
+        nullable: true
+    - name: PageNumber
+      in: query
+      description: '- PageNumber Starts at 1'
+      schema:
+        type: integer
+        description: '- PageNumber Starts at 1'
+        format: int32
+    - name: PageSize
+      in: query
+      description: "- Default page size: 100\r\n- Max page size: 500"
+      schema:
+        type: integer
+        description: "- Default page size: 100\r\n- Max page size: 500"
+        format: int32
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ItemGet'

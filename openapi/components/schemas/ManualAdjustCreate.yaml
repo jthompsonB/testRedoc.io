@@ -1,0 +1,33 @@
+required:
+  - itemID
+  - storeID
+type: object
+properties:
+  itemID:
+    type: string
+    format: uuid
+  storeID:
+    type: string
+    format: uuid
+  beanAccountID:
+    type: string
+    format: uuid
+  newOnHand:
+    type: number
+    description: sets a new on hand value for given item at given store
+    format: double
+    nullable: true
+  adjustment:
+    type: number
+    description: "- sets the adjustment for the item at that store\r\n- NewOnHand takes precedence over Adjustment. If both are set, NewOnHand's Value will be used, not Adjustment"
+    format: double
+    nullable: true
+  itemCost:
+    type: number
+    description: New Item Cost (defaults to -1 if a value is not provided)
+    format: double
+    nullable: true
+  reference:
+    type: string
+    nullable: true
+additionalProperties: false

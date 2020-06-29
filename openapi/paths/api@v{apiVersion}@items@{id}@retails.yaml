@@ -1,0 +1,40 @@
+post:
+  tags:
+    - Items
+  summary: Adds a new record for an item's retail
+  parameters:
+    - name: id
+      in: path
+      description: Item Id
+      required: true
+      schema:
+        type: string
+        description: Item Id
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: Item Retail Creation Object
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '#/components/schemas/ItemRetailCreate'
+      application/json:
+        schema:
+          $ref: '#/components/schemas/ItemRetailCreate'
+      text/json:
+        schema:
+          $ref: '#/components/schemas/ItemRetailCreate'
+      application/*+json:
+        schema:
+          $ref: '#/components/schemas/ItemRetailCreate'
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ItemRetailCreateResponse'

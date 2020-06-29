@@ -1,0 +1,85 @@
+type: object
+properties:
+  fromStore:
+    type: string
+    format: uuid
+  toStore:
+    type: string
+    format: uuid
+  due:
+    type: string
+    format: date-time
+    nullable: true
+  lines:
+    type: array
+    items:
+      $ref: '#/components/schemas/CommdocLine'
+    nullable: true
+  thirdPartyID:
+    type: string
+    nullable: true
+  totalAmount:
+    type: number
+    format: double
+  store:
+    type: object
+    additionalProperties: false
+    nullable: true
+  store2:
+    type: object
+    additionalProperties: false
+    nullable: true
+  committed:
+    type: string
+    format: date-time
+    nullable: true
+  committedByUser:
+    type: object
+    additionalProperties: false
+    nullable: true
+  committed2:
+    type: string
+    format: date-time
+    nullable: true
+  committed2ByUser:
+    type: object
+    additionalProperties: false
+    nullable: true
+  bill:
+    type: string
+    format: date-time
+    nullable: true
+  overDue:
+    type: string
+    format: date-time
+    nullable: true
+  backOrdered:
+    type: boolean
+  canceled:
+    type: boolean
+  paid:
+    type: boolean
+  approvalStatuses:
+    type: array
+    items:
+      $ref: '#/components/schemas/CommdocApprovalStatus'
+    nullable: true
+  buyer:
+    type: object
+    additionalProperties: false
+    nullable: true
+  reference:
+    type: string
+    nullable: true
+  description:
+    type: string
+    nullable: true
+  instructions:
+    type: string
+    nullable: true
+  notes:
+    type: string
+    nullable: true
+  commit:
+    type: boolean
+additionalProperties: false

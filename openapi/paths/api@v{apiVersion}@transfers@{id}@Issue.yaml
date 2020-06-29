@@ -1,0 +1,22 @@
+patch:
+  tags:
+    - Transfers
+  summary: Issues a Transfer
+  description: "Issuing a Transfer is an indication that the Store on the sending side of the Item movement \r\n            has been sent to the Store on the Recieving side."
+  parameters:
+    - name: id
+      in: path
+      description: CommDoc Id of Transfer
+      required: true
+      schema:
+        type: string
+        description: CommDoc Id of Transfer
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success

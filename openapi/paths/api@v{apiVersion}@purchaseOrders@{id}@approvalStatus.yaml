@@ -1,0 +1,25 @@
+get:
+  tags:
+    - PurchaseOrders
+  summary: Get Purchase Order Approval Status by Id of Purchase Order
+  parameters:
+    - name: id
+      in: path
+      description: CommDoc Id of Purchase Order
+      required: true
+      schema:
+        type: string
+        description: CommDoc Id of Purchase Order
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CommdocApprovalStatuses'

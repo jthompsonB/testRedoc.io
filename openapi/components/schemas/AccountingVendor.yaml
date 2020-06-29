@@ -1,0 +1,18 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  code:
+    type: string
+    nullable: true
+  description:
+    type: string
+    nullable: true
+  accountingId:
+    type: string
+    nullable: true
+  reference:
+    type: string
+    nullable: true
+additionalProperties: false

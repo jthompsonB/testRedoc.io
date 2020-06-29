@@ -1,0 +1,100 @@
+required:
+  - id
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  description:
+    type: string
+    nullable: true
+  posDescription1:
+    type: string
+    nullable: true
+  posDescription2:
+    type: string
+    nullable: true
+  sku:
+    type: string
+    nullable: true
+  noCount:
+    type: boolean
+  shippingWeight:
+    type: number
+    format: double
+  shippingHeight:
+    type: number
+    format: double
+  shippingWidth:
+    type: number
+    format: double
+  shippingLength:
+    type: number
+    format: double
+  uom:
+    type: string
+    nullable: true
+  childCount:
+    type: number
+    format: double
+  childUsage:
+    type: number
+    format: double
+  upc:
+    type: array
+    items:
+      type: string
+    nullable: true
+    readOnly: true
+  active:
+    type: boolean
+  lastUpdated:
+    type: string
+    format: date-time
+    nullable: true
+  dimension1:
+    $ref: '#/components/schemas/ItemDimension'
+  dimension2:
+    $ref: '#/components/schemas/ItemDimension'
+  dimension3:
+    $ref: '#/components/schemas/ItemDimension'
+  dimension4:
+    $ref: '#/components/schemas/ItemDimension'
+  dimension5:
+    $ref: '#/components/schemas/ItemDimension'
+  dimension6:
+    $ref: '#/components/schemas/ItemDimension'
+  dimension7:
+    $ref: '#/components/schemas/ItemDimension'
+  dimension8:
+    $ref: '#/components/schemas/ItemDimension'
+  dimension9:
+    $ref: '#/components/schemas/ItemDimension'
+  dimension10:
+    $ref: '#/components/schemas/ItemDimension'
+  level:
+    $ref: '#/components/schemas/ItemLevel'
+  parentItem:
+    $ref: '#/components/schemas/GenericObject'
+  recipe:
+    $ref: '#/components/schemas/GenericObject'
+  matrix:
+    $ref: '#/components/schemas/GenericObject'
+  webProperties:
+    $ref: '#/components/schemas/WebProperties'
+  stores:
+    type: array
+    items:
+      $ref: '#/components/schemas/Item2StoreGet'
+    nullable: true
+  vendors:
+    type: array
+    items:
+      $ref: '#/components/schemas/Item2VendorGet'
+    nullable: true
+  images:
+    type: array
+    items:
+      $ref: '#/components/schemas/ItemImage'
+    nullable: true
+additionalProperties: false

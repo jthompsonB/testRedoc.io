@@ -1,0 +1,13 @@
+type: object
+properties:
+  commdocLineID:
+    type: string
+    format: uuid
+    nullable: true
+  quantity:
+    type: number
+    format: double
+  notes:
+    type: string
+    nullable: true
+additionalProperties: false

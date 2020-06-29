@@ -1,0 +1,46 @@
+patch:
+  tags:
+    - Transfers
+  summary: Updates an existing Transfer
+  parameters:
+    - name: id
+      in: path
+      description: CommDoc Id of Transfer
+      required: true
+      schema:
+        type: string
+        description: CommDoc Id of Transfer
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: Updated data regarding Transfer
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '#/components/schemas/TransferUpdate'
+      application/json:
+        schema:
+          $ref: '#/components/schemas/TransferUpdate'
+      text/json:
+        schema:
+          $ref: '#/components/schemas/TransferUpdate'
+      application/*+json:
+        schema:
+          $ref: '#/components/schemas/TransferUpdate'
+  responses:
+    '200':
+      description: Success
+      content:
+        text/plain:
+          schema:
+            $ref: '#/components/schemas/Transfer'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Transfer'
+        text/json:
+          schema:
+            $ref: '#/components/schemas/Transfer'

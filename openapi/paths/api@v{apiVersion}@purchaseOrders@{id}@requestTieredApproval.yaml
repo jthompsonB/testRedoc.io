@@ -1,0 +1,27 @@
+post:
+  tags:
+    - PurchaseOrders
+  summary: Starts the process of Tiered Purchase Order Approval process
+  parameters:
+    - name: id
+      in: path
+      description: CommDoc Id of Purchase Order
+      required: true
+      schema:
+        type: string
+        description: CommDoc Id of Purchase Order
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/SendGridUserResponse'

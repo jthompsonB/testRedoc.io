@@ -1,0 +1,46 @@
+get:
+  tags:
+    - Currency
+  summary: Getting Currency by Id
+  parameters:
+    - name: id
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CurrencyGet'
+delete:
+  tags:
+    - Currency
+  summary: Deleting a Currency Exchange Rate
+  parameters:
+    - name: id
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success

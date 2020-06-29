@@ -1,0 +1,13 @@
+type: object
+properties:
+  date:
+    type: string
+    format: date-time
+  store:
+    $ref: '#/components/schemas/AccountingStore'
+  lines:
+    type: array
+    items:
+      $ref: '#/components/schemas/AccountingLine'
+    nullable: true
+additionalProperties: false

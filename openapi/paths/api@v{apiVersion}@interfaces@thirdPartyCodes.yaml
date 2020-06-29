@@ -1,0 +1,219 @@
+get:
+  tags:
+    - ThirdPartyCodes
+  summary: Gets all Third Party Codes
+  operationId: GetTPCodes
+  parameters:
+    - name: Filter
+      in: query
+      description: "### Filter Options:\r\n- code\r\n- type"
+      schema:
+        type: array
+        items:
+          type: string
+        description: "### Filter Options:\r\n- code\r\n- type"
+        nullable: true
+    - name: OrderBy
+      in: query
+      description: "### Order By Options:\r\n- code\r\n- type"
+      schema:
+        type: array
+        items:
+          type: string
+        description: "### Order By Options:\r\n- code\r\n- type"
+        nullable: true
+    - name: PageNumber
+      in: query
+      description: '- PageNumber Starts at 1'
+      schema:
+        type: integer
+        description: '- PageNumber Starts at 1'
+        format: int32
+    - name: PageSize
+      in: query
+      description: "- Default page size: 100\r\n- Max page size: 500"
+      schema:
+        type: integer
+        description: "- Default page size: 100\r\n- Max page size: 500"
+        format: int32
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/TPCodeGet'
+post:
+  tags:
+    - ThirdPartyCodes
+  summary: Creates Third Party Codes
+  description: "## Standard Request Example\r\n\r\nThird Party Codes are configuration options exposed to the Yellow Dog Inventory user that allow for behavior changes for an item or a setting. A common use case is for managing what the tax code might be for a particular item so that the integration is able to associate the proper tax rate on sale of the item.\r\n\r\n### POST /thirdPartyCodes\r\n\r\n```json\r\n[\r\n\t{\r\n\t\t\"type\": \"IntegrationNameTaxGrouping\", // This will be displayed in the Interfaces tab under the Accounting/Other section as \"Integration Name Tax Grouping\"\r\n\t\t\"code\": \"1\", // Identifier used by the Integrator to match certain behavior on their side of the integration.\r\n\t\t\"description\": \"local tax\" // User friendly description that will be displayed to the user as part of a drop down box titled by the `type`\r\n\t\t\"store\": {\r\n\t\t\t\"id\": \"123e4567-e89b-12d3-a456-426655440000\" // Id of the store this Code should be active for. If this code should be active for all stores use an id value of \"00000000-0000-0000-0000-000000000000\"\r\n\t\t}\r\n\t}\r\n]\r\n```\r\n\r\n## Modifiers Example\r\n\r\nIf the third party integrator would like to allow enabling of true/false values for allowing Yellow Dog clients to enable item behavior in the integration, we recommend that this be accomplished by the following example.\r\n\r\n### POST /thirdPartyCodes\r\n\r\n```json\r\n[\r\n\t{\r\n\t\t\"type\": \"IntegrationNameIsModifier\",\r\n\t\t\"code\": \"true\", \r\n\t\t\"description\": \"Is a Modifier\" \r\n\t\t\"store\": {\r\n\t\t\t\"id\": \"123e4567-e89b-12d3-a456-426655440000\" \r\n\t\t}\r\n\t},\r\n\t{\r\n\t\t\"type\": \"IntegrationNameIsModifier\", \r\n\t\t\"code\": \"false\", \r\n\t\t\"description\": \"Is not a modifier\" \r\n\t\t\"store\": {\r\n\t\t\t\"id\": \"123e4567-e89b-12d3-a456-426655440000\" \r\n\t\t}\r\n\t}\r\n]\r\n```"
+  parameters:
+    - name: suppressOutput
+      in: query
+      schema:
+        type: boolean
+        default: true
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/TPCodeCreate'
+          nullable: true
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/TPCodeCreate'
+          nullable: true
+      text/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/TPCodeCreate'
+          nullable: true
+      application/*+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/TPCodeCreate'
+          nullable: true
+  responses:
+    '200':
+      description: Received Request with no values in the body.
+    '201':
+      description: >-
+        Returns the newly created ThirdPartyCodes, if suppressOutput parameter
+        is set to false.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/TPCode'
+    '400':
+      description: Error has occured.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+put:
+  tags:
+    - ThirdPartyCodes
+  summary: Updates Third Party Codes
+  parameters:
+    - name: suppressOutput
+      in: query
+      schema:
+        type: boolean
+        default: true
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/TPCodeUpdate'
+          nullable: true
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/TPCodeUpdate'
+          nullable: true
+      text/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/TPCodeUpdate'
+          nullable: true
+      application/*+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/TPCodeUpdate'
+          nullable: true
+  responses:
+    '200':
+      description: >-
+        Returns the updated ThirdPartyCodes, if suppressOutput parameter is set
+        to false.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/TPCode'
+    '400':
+      description: Error has occured.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+delete:
+  tags:
+    - ThirdPartyCodes
+  summary: Bulk delete Third Party Codes
+  parameters:
+    - name: suppressOutput
+      in: query
+      schema:
+        type: boolean
+        default: true
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+          nullable: true
+      application/json:
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+          nullable: true
+      text/json:
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+          nullable: true
+      application/*+json:
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+          nullable: true
+  responses:
+    '200':
+      description: Success

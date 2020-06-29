@@ -1,0 +1,27 @@
+type: object
+properties:
+  commdocID:
+    type: string
+    format: uuid
+  status:
+    type: string
+    nullable: true
+  dateTimeOffset:
+    type: string
+    format: date-time
+    nullable: true
+  notes:
+    type: string
+    nullable: true
+  type:
+    type: string
+    nullable: true
+  tier:
+    type: integer
+    format: int32
+    nullable: true
+  userID:
+    type: string
+    format: uuid
+    nullable: true
+additionalProperties: false

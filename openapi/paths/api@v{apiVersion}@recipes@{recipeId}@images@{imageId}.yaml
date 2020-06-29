@@ -1,0 +1,77 @@
+delete:
+  tags:
+    - Recipes
+  summary: Deletes a recipe's image
+  parameters:
+    - name: recipeId
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        format: uuid
+    - name: imageId
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+patch:
+  tags:
+    - Recipes
+  summary: Updates a the image details of a recipe
+  parameters:
+    - name: recipeId
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        format: uuid
+    - name: imageId
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: ''
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '#/components/schemas/AttachedFileMutation'
+      application/json:
+        schema:
+          $ref: '#/components/schemas/AttachedFileMutation'
+      text/json:
+        schema:
+          $ref: '#/components/schemas/AttachedFileMutation'
+      application/*+json:
+        schema:
+          $ref: '#/components/schemas/AttachedFileMutation'
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AttachedFile'

@@ -1,0 +1,17 @@
+get:
+  tags:
+    - PurchaseOrders
+  summary: Get Purchase Order Approval Status using token
+  parameters:
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CommdocApprovalStatus'

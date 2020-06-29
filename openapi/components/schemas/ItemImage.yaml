@@ -1,0 +1,16 @@
+type: object
+properties:
+  placement:
+    type: integer
+    format: int64
+  id:
+    type: string
+    format: uuid
+    nullable: true
+  description:
+    type: string
+    nullable: true
+  imageURL:
+    type: string
+    nullable: true
+additionalProperties: false

@@ -1,0 +1,52 @@
+type: object
+properties:
+  title:
+    type: string
+    nullable: true
+  description:
+    type: string
+    nullable: true
+  extendedDescription:
+    type: string
+    nullable: true
+  availableDate:
+    type: string
+    format: date-time
+    nullable: true
+  expiresDate:
+    type: string
+    format: date-time
+    nullable: true
+  sale:
+    type: boolean
+  itemSaleRetail:
+    type: number
+    format: double
+    nullable: true
+  itemSalePercentOff:
+    type: number
+    format: double
+    nullable: true
+  saleBegins:
+    type: string
+    format: date-time
+    nullable: true
+  saleEnds:
+    type: string
+    format: date-time
+    nullable: true
+  available:
+    type: boolean
+  flagA:
+    type: boolean
+  flagB:
+    type: boolean
+  flagC:
+    type: boolean
+  tags:
+    type: string
+    nullable: true
+  productType:
+    type: string
+    nullable: true
+additionalProperties: false

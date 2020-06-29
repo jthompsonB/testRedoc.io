@@ -1,0 +1,28 @@
+required:
+  - description
+  - lines
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  code:
+    type: string
+    nullable: true
+  source:
+    type: string
+    nullable: true
+  description:
+    type: string
+  dateTime:
+    type: string
+    format: date-time
+  store:
+    $ref: '#/components/schemas/TPStore'
+  createdByUser:
+    $ref: '#/components/schemas/GenericObject'
+  lines:
+    type: array
+    items:
+      $ref: '#/components/schemas/TPSessionItem'
+additionalProperties: false

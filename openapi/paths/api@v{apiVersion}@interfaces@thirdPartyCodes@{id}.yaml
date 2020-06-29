@@ -1,0 +1,46 @@
+get:
+  tags:
+    - ThirdPartyCodes
+  summary: Gets Third Party Code by Id
+  parameters:
+    - name: id
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TPCodeGet'
+delete:
+  tags:
+    - ThirdPartyCodes
+  summary: Deleting a Third Party Code
+  parameters:
+    - name: id
+      in: path
+      description: Third Party Code Id
+      required: true
+      schema:
+        type: string
+        description: Third Party Code Id
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success

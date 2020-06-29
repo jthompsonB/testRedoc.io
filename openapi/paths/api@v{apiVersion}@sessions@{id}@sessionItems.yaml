@@ -1,0 +1,40 @@
+post:
+  tags:
+    - Sessions
+  summary: Adding a Session Item to a Session
+  parameters:
+    - name: id
+      in: path
+      description: Session Id
+      required: true
+      schema:
+        type: string
+        description: Session Id
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: creation params
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '#/components/schemas/SessionItemCreate2'
+      application/json:
+        schema:
+          $ref: '#/components/schemas/SessionItemCreate2'
+      text/json:
+        schema:
+          $ref: '#/components/schemas/SessionItemCreate2'
+      application/*+json:
+        schema:
+          $ref: '#/components/schemas/SessionItemCreate2'
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SessionItemMutationResponse'

@@ -1,0 +1,20 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  code:
+    type: string
+    nullable: true
+  description:
+    type: string
+    nullable: true
+  sku:
+    type: string
+    nullable: true
+  price:
+    type: number
+    format: double
+  isPrimary:
+    type: boolean
+additionalProperties: false

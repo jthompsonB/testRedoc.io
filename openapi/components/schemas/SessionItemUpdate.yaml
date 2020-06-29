@@ -1,0 +1,8 @@
+required:
+  - count
+type: object
+properties:
+  count:
+    type: number
+    format: double
+additionalProperties: false

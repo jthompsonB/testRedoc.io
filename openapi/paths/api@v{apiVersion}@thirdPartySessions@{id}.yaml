@@ -1,0 +1,25 @@
+get:
+  tags:
+    - ThirdPartySessions
+  summary: Gets Third Party Session by Id
+  parameters:
+    - name: id
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TPSessionGet'

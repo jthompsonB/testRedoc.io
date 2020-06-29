@@ -1,0 +1,23 @@
+type: object
+properties:
+  noOnHand:
+    type: boolean
+  revenueCenter:
+    type: string
+    nullable: true
+  notes:
+    type: string
+    nullable: true
+  created:
+    type: string
+    format: date-time
+  storeID:
+    type: string
+    format: uuid
+  code:
+    type: string
+    nullable: true
+  name:
+    type: string
+    nullable: true
+additionalProperties: false

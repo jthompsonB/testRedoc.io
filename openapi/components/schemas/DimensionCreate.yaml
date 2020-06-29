@@ -1,0 +1,13 @@
+required:
+  - description
+  - type
+type: object
+properties:
+  type:
+    type: string
+  description:
+    type: string
+  dimensionID:
+    type: string
+    format: uuid
+additionalProperties: false

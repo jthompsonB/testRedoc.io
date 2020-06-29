@@ -1,0 +1,36 @@
+patch:
+  tags:
+    - Requests
+  summary: Updates an existing Request
+  parameters:
+    - name: id
+      in: path
+      description: CommDoc Id of Request
+      required: true
+      schema:
+        type: string
+        description: CommDoc Id of Request
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: Any alterations to the Request
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '#/components/schemas/RequestCreate'
+      application/json:
+        schema:
+          $ref: '#/components/schemas/RequestCreate'
+      text/json:
+        schema:
+          $ref: '#/components/schemas/RequestCreate'
+      application/*+json:
+        schema:
+          $ref: '#/components/schemas/RequestCreate'
+  responses:
+    '200':
+      description: Success

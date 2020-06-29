@@ -1,0 +1,30 @@
+type: object
+properties:
+  sessionID:
+    type: string
+    format: uuid
+  storeID:
+    type: string
+    format: uuid
+    nullable: true
+  description:
+    type: string
+    nullable: true
+  userID:
+    type: string
+    format: uuid
+  device:
+    type: string
+    nullable: true
+  countSheetID:
+    type: string
+    format: uuid
+    nullable: true
+  mobileStatus:
+    $ref: '#/components/schemas/MobileStatus'
+  sessionItems:
+    type: array
+    items:
+      $ref: '#/components/schemas/SessionItemCreate'
+    nullable: true
+additionalProperties: false

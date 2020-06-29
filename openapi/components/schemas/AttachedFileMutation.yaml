@@ -1,0 +1,7 @@
+required:
+  - description
+type: object
+properties:
+  description:
+    type: string
+additionalProperties: false

@@ -1,0 +1,200 @@
+get:
+  tags:
+    - Vendors
+  summary: Getting Vendors
+  operationId: GetVendors
+  parameters:
+    - name: Filter
+      in: query
+      description: "### Filter Options:\r\n- code\r\n- description\r\n- url\r\n- collectsTax\r\n- notes\r\n- created\r\n- lastUpdated"
+      schema:
+        type: array
+        items:
+          type: string
+        description: "### Filter Options:\r\n- code\r\n- description\r\n- url\r\n- collectsTax\r\n- notes\r\n- created\r\n- lastUpdated"
+        nullable: true
+    - name: OrderBy
+      in: query
+      description: "### Order By Options:\r\n- code\r\n- created\r\n- lastUpdated"
+      schema:
+        type: array
+        items:
+          type: string
+        description: "### Order By Options:\r\n- code\r\n- created\r\n- lastUpdated"
+        nullable: true
+    - name: PageNumber
+      in: query
+      description: '- PageNumber Starts at 1'
+      schema:
+        type: integer
+        description: '- PageNumber Starts at 1'
+        format: int32
+    - name: PageSize
+      in: query
+      description: "- Default page size: 100\r\n- Max page size: 500"
+      schema:
+        type: integer
+        description: "- Default page size: 100\r\n- Max page size: 500"
+        format: int32
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/VendorGet'
+post:
+  tags:
+    - Vendors
+  summary: Creating new Vendors
+  parameters:
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: Object Used to Create Vendors
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/VendorCreate'
+          description: Object Used to Create Vendors
+          nullable: true
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/VendorCreate'
+          description: Object Used to Create Vendors
+          nullable: true
+      text/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/VendorCreate'
+          description: Object Used to Create Vendors
+          nullable: true
+      application/*+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/VendorCreate'
+          description: Object Used to Create Vendors
+          nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/VendorGet'
+put:
+  tags:
+    - Vendors
+  summary: Updating existing Vendors
+  parameters:
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: Object Used to update an existing Vendors
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/VendorUpdate'
+          description: Object Used to update an existing Vendors
+          nullable: true
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/VendorUpdate'
+          description: Object Used to update an existing Vendors
+          nullable: true
+      text/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/VendorUpdate'
+          description: Object Used to update an existing Vendors
+          nullable: true
+      application/*+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/VendorUpdate'
+          description: Object Used to update an existing Vendors
+          nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/VendorGet'
+delete:
+  tags:
+    - Vendors
+  summary: Bulk delete Vendors
+  parameters:
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: List of Vendor Ids to be deleted
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: List of Vendor Ids to be deleted
+          nullable: true
+      application/json:
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: List of Vendor Ids to be deleted
+          nullable: true
+      text/json:
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: List of Vendor Ids to be deleted
+          nullable: true
+      application/*+json:
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: List of Vendor Ids to be deleted
+          nullable: true
+  responses:
+    '200':
+      description: Success

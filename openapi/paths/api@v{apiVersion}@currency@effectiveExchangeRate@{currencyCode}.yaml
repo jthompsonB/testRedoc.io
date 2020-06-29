@@ -1,0 +1,33 @@
+get:
+  tags:
+    - Currency
+  summary: Getting Currency by Id
+  parameters:
+    - name: currencyCode
+      in: path
+      description: ''
+      required: true
+      schema:
+        type: string
+        description: ''
+        nullable: true
+    - name: date
+      in: query
+      description: ''
+      schema:
+        type: string
+        description: ''
+        format: date-time
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: number
+            format: double

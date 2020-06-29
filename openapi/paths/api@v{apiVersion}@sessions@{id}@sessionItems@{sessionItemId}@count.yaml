@@ -1,0 +1,48 @@
+put:
+  tags:
+    - Sessions
+  summary: Updating values of a Session Item
+  parameters:
+    - name: id
+      in: path
+      description: Session Id
+      required: true
+      schema:
+        type: string
+        description: Session Id
+        format: uuid
+    - name: sessionItemId
+      in: path
+      description: Session Item Id
+      required: true
+      schema:
+        type: string
+        description: Session Item Id
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: update params
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '#/components/schemas/SessionItemUpdate'
+      application/json:
+        schema:
+          $ref: '#/components/schemas/SessionItemUpdate'
+      text/json:
+        schema:
+          $ref: '#/components/schemas/SessionItemUpdate'
+      application/*+json:
+        schema:
+          $ref: '#/components/schemas/SessionItemUpdate'
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SessionItemMutationResponse'

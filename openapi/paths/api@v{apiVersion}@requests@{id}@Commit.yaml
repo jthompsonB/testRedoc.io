@@ -1,0 +1,23 @@
+patch:
+  tags:
+    - Requests
+  summary: >-
+    Commits a Request, this allows the Request to be used in future steps of the
+    Purchasing Document Workflow
+  parameters:
+    - name: id
+      in: path
+      description: CommDoc Id of Request
+      required: true
+      schema:
+        type: string
+        description: CommDoc Id of Request
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success

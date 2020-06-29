@@ -1,0 +1,38 @@
+post:
+  tags:
+    - Transfers
+  summary: Creates a Transfer
+  parameters:
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: Object Representing a Transfer to be created
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '#/components/schemas/TransferCreate'
+      application/json:
+        schema:
+          $ref: '#/components/schemas/TransferCreate'
+      text/json:
+        schema:
+          $ref: '#/components/schemas/TransferCreate'
+      application/*+json:
+        schema:
+          $ref: '#/components/schemas/TransferCreate'
+  responses:
+    '200':
+      description: Success
+      content:
+        text/plain:
+          schema:
+            $ref: '#/components/schemas/Transfer'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Transfer'
+        text/json:
+          schema:
+            $ref: '#/components/schemas/Transfer'

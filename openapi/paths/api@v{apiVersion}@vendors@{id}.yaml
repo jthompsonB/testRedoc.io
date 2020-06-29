@@ -1,0 +1,46 @@
+get:
+  tags:
+    - Vendors
+  summary: Getting Vendor by Id
+  parameters:
+    - name: id
+      in: path
+      description: Vendor Id
+      required: true
+      schema:
+        type: string
+        description: Vendor Id
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/VendorGet'
+delete:
+  tags:
+    - Vendors
+  summary: Deleting a Vendor
+  parameters:
+    - name: id
+      in: path
+      description: Vendor Id
+      required: true
+      schema:
+        type: string
+        description: Vendor Id
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success

@@ -1,0 +1,34 @@
+get:
+  tags:
+    - PurchaseOrders
+  summary: Get Purchase Order by Id
+  parameters:
+    - name: id
+      in: path
+      description: CommDoc Id of Purchase Order
+      required: true
+      schema:
+        type: string
+        description: CommDoc Id of Purchase Order
+        format: uuid
+    - name: Expand
+      in: query
+      description: "### Expand Options:\r\n- Items\r\n- Stores\r\n- Users\r\n- Vendors\r\n- LineDetails\r\n- ApprovalStatuses"
+      schema:
+        type: array
+        items:
+          type: string
+        description: "### Expand Options:\r\n- Items\r\n- Stores\r\n- Users\r\n- Vendors\r\n- LineDetails\r\n- ApprovalStatuses"
+        nullable: true
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PurchaseOrderGet'

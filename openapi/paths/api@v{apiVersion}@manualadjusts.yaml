@@ -1,0 +1,44 @@
+post:
+  tags:
+    - ManualAdjusts
+  summary: Creates Manual Adjustments
+  parameters:
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: ''
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/ManualAdjustCreate'
+          description: ''
+          nullable: true
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/ManualAdjustCreate'
+          description: ''
+          nullable: true
+      text/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/ManualAdjustCreate'
+          description: ''
+          nullable: true
+      application/*+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/ManualAdjustCreate'
+          description: ''
+          nullable: true
+  responses:
+    '200':
+      description: Success

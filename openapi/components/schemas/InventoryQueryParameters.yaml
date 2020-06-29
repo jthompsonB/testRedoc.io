@@ -1,0 +1,29 @@
+type: object
+properties:
+  stores:
+    type: array
+    items:
+      type: string
+      format: uuid
+    description: '- List of StoreIDs'
+    nullable: true
+  items:
+    type: array
+    items:
+      type: string
+      format: uuid
+    description: "- List of ItemIDs\r\n- If provided the LastUpdated field will be ignored."
+    nullable: true
+  lastUpdated:
+    type: string
+    format: date-time
+    nullable: true
+  pageNumber:
+    type: integer
+    description: '- PageNumber Starts at 1'
+    format: int32
+  pageSize:
+    type: integer
+    description: "- Default page size: 100\r\n- Max page size: 500"
+    format: int32
+additionalProperties: false

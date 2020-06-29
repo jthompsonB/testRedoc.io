@@ -1,0 +1,200 @@
+get:
+  tags:
+    - Currency
+  summary: Getting Currency
+  operationId: GetCurrency
+  parameters:
+    - name: Filter
+      in: query
+      description: "### Filter Options:\r\n- currencyCode\r\n- date\r\n- exchangeRate\r\n- lastUpdated"
+      schema:
+        type: array
+        items:
+          type: string
+        description: "### Filter Options:\r\n- currencyCode\r\n- date\r\n- exchangeRate\r\n- lastUpdated"
+        nullable: true
+    - name: OrderBy
+      in: query
+      description: "### Order By Options:\r\n- currencyCode\r\n- date\r\n- lastUpdated"
+      schema:
+        type: array
+        items:
+          type: string
+        description: "### Order By Options:\r\n- currencyCode\r\n- date\r\n- lastUpdated"
+        nullable: true
+    - name: PageNumber
+      in: query
+      description: '- PageNumber Starts at 1'
+      schema:
+        type: integer
+        description: '- PageNumber Starts at 1'
+        format: int32
+    - name: PageSize
+      in: query
+      description: "- Default page size: 100\r\n- Max page size: 500"
+      schema:
+        type: integer
+        description: "- Default page size: 100\r\n- Max page size: 500"
+        format: int32
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/CurrencyGet'
+post:
+  tags:
+    - Currency
+  summary: Creating new Currency Exchange Rate
+  parameters:
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: ''
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/CurrencyCreate'
+          description: ''
+          nullable: true
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/CurrencyCreate'
+          description: ''
+          nullable: true
+      text/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/CurrencyCreate'
+          description: ''
+          nullable: true
+      application/*+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/CurrencyCreate'
+          description: ''
+          nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/CurrencyGet'
+put:
+  tags:
+    - Currency
+  summary: Updating existing Currency Exchange Rate
+  parameters:
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: ''
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/CurrencyUpdate'
+          description: ''
+          nullable: true
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/CurrencyUpdate'
+          description: ''
+          nullable: true
+      text/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/CurrencyUpdate'
+          description: ''
+          nullable: true
+      application/*+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/CurrencyUpdate'
+          description: ''
+          nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/CurrencyGet'
+delete:
+  tags:
+    - Currency
+  summary: Bulk delete Currency Exchange Rates
+  parameters:
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: List of Currency IDs to be deleted
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: List of Currency IDs to be deleted
+          nullable: true
+      application/json:
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: List of Currency IDs to be deleted
+          nullable: true
+      text/json:
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: List of Currency IDs to be deleted
+          nullable: true
+      application/*+json:
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: List of Currency IDs to be deleted
+          nullable: true
+  responses:
+    '200':
+      description: Success

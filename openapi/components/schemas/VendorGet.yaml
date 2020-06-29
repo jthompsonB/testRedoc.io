@@ -1,0 +1,43 @@
+type: object
+properties:
+  vendorID:
+    type: string
+    format: uuid
+  converted:
+    type: string
+    nullable: true
+  code:
+    type: string
+    nullable: true
+  description:
+    type: string
+    nullable: true
+  url:
+    type: string
+    nullable: true
+  collectsTax:
+    type: boolean
+  notes:
+    type: string
+    nullable: true
+  approved:
+    type: boolean
+  currencyCode:
+    type: string
+    nullable: true
+  created:
+    type: string
+    format: date-time
+  lastUpdated:
+    type: string
+    format: date-time
+  orderFrom:
+    $ref: '#/components/schemas/VendorContact'
+  returnTo:
+    $ref: '#/components/schemas/VendorContact'
+  stores:
+    type: array
+    items:
+      $ref: '#/components/schemas/Vendor2Store'
+    nullable: true
+additionalProperties: false

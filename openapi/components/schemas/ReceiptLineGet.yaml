@@ -1,0 +1,50 @@
+type: object
+properties:
+  commdocLineID:
+    type: string
+    format: uuid
+  thirdPartyLineID:
+    type: string
+    nullable: true
+  lineNumber:
+    type: integer
+    format: int32
+  vendorPrice:
+    type: number
+    format: double
+    nullable: true
+  quantity:
+    type: number
+    format: double
+    nullable: true
+  notes:
+    type: string
+    nullable: true
+  backLinkDoc:
+    $ref: '#/components/schemas/BackLinkDoc'
+  item:
+    type: object
+    additionalProperties: false
+    nullable: true
+  commdocID:
+    type: string
+    format: uuid
+  itemID:
+    type: string
+    format: uuid
+  backLinkID:
+    type: string
+    format: uuid
+  backLinkType:
+    type: string
+    nullable: true
+  backLinkDocNumber:
+    type: string
+    nullable: true
+  backLinkLineID:
+    type: string
+    format: uuid
+  backLinkLineNumber:
+    type: integer
+    format: int32
+additionalProperties: false

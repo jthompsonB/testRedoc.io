@@ -1,0 +1,18 @@
+type: object
+properties:
+  accountGLCode:
+    type: string
+    nullable: true
+  id:
+    type: string
+    format: uuid
+  code:
+    type: string
+    nullable: true
+  description:
+    type: string
+    nullable: true
+  accountingId:
+    type: string
+    nullable: true
+additionalProperties: false

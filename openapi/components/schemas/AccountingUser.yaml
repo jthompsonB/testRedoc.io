@@ -1,0 +1,18 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  employeeNumber:
+    type: string
+    nullable: true
+  firstName:
+    type: string
+    nullable: true
+  middleName:
+    type: string
+    nullable: true
+  lastName:
+    type: string
+    nullable: true
+additionalProperties: false

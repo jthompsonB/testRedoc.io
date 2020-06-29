@@ -1,0 +1,37 @@
+patch:
+  tags:
+    - Transfers
+  summary: Accepts a Transfer
+  description: "Accepting a Transfer is an indication that the Store on the recieving side of the Item movement has\r\n            been recieved at the quantities indicated by the accepting quantity."
+  parameters:
+    - name: id
+      in: path
+      description: CommDoc Id of Transfer
+      required: true
+      schema:
+        type: string
+        description: CommDoc Id of Transfer
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: Any alterations to the accepting Transfer
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '#/components/schemas/TransferAccept'
+      application/json:
+        schema:
+          $ref: '#/components/schemas/TransferAccept'
+      text/json:
+        schema:
+          $ref: '#/components/schemas/TransferAccept'
+      application/*+json:
+        schema:
+          $ref: '#/components/schemas/TransferAccept'
+  responses:
+    '200':
+      description: Success

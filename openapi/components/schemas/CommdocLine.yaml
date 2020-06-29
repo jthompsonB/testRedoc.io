@@ -1,0 +1,37 @@
+type: object
+properties:
+  commdocLineID:
+    type: string
+    format: uuid
+  thirdPartyLineID:
+    type: string
+    nullable: true
+  lineNumber:
+    type: integer
+    format: int32
+  vendorPrice:
+    type: number
+    format: double
+    nullable: true
+  quantity:
+    type: number
+    format: double
+    nullable: true
+  notes:
+    type: string
+    nullable: true
+  backLinkLineID:
+    type: object
+    additionalProperties: false
+    nullable: true
+  item:
+    type: object
+    additionalProperties: false
+    nullable: true
+  commdocID:
+    type: string
+    format: uuid
+  itemID:
+    type: string
+    format: uuid
+additionalProperties: false

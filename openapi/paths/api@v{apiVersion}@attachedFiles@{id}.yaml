@@ -1,0 +1,26 @@
+get:
+  tags:
+    - AttachedFile
+  summary: Gets image based on Id. This image can be associated to an Item or a Recipe.
+  parameters:
+    - name: id
+      in: path
+      description: AttachedFile Id
+      required: true
+      schema:
+        type: string
+        description: AttachedFile Id
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+      content:
+        image/png:
+          schema:
+            type: string
+            format: binary

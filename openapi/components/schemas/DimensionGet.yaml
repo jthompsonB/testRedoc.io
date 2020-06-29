@@ -1,0 +1,15 @@
+type: object
+properties:
+  dimensionID:
+    type: string
+    format: uuid
+  lastUpdated:
+    type: string
+    format: date-time
+  type:
+    type: string
+    nullable: true
+  description:
+    type: string
+    nullable: true
+additionalProperties: false

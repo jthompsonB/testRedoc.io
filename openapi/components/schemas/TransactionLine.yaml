@@ -1,0 +1,49 @@
+required:
+  - itemRetail
+  - quantity
+  - transactionLineNumber
+type: object
+properties:
+  converted:
+    type: string
+    nullable: true
+  itemNumber:
+    type: string
+    nullable: true
+  sku:
+    type: string
+    nullable: true
+  itemDescription:
+    type: string
+    nullable: true
+  itemRetail:
+    type: number
+    format: double
+  baseRetail:
+    type: number
+    format: double
+    nullable: true
+  itemDiscount:
+    type: number
+    format: double
+    nullable: true
+  discountDescription:
+    type: string
+    nullable: true
+  quantity:
+    type: number
+    format: double
+  transactionLineNumber:
+    maximum: 2147483647
+    minimum: 0
+    type: integer
+    format: int32
+  parent:
+    type: string
+    description: >-
+      This field should contain the ThirdPartyLineID of the line it is
+      modifying.
+    nullable: true
+  item:
+    $ref: '#/components/schemas/GenericObject'
+additionalProperties: false

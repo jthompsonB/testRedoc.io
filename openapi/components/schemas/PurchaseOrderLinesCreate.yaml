@@ -1,0 +1,33 @@
+required:
+  - item
+  - quantity
+  - vendorPrice
+type: object
+properties:
+  commdocID:
+    type: string
+    format: uuid
+  commdocLineID:
+    type: string
+    format: uuid
+  thirdPartyLineID:
+    type: string
+    nullable: true
+  lineNumber:
+    type: integer
+    format: int32
+  vendorPrice:
+    type: number
+    format: double
+  quantity:
+    type: number
+    format: double
+  notes:
+    type: string
+    nullable: true
+  backLinkLineID:
+    type: string
+    format: uuid
+  item:
+    $ref: '#/components/schemas/GenericObject'
+additionalProperties: false

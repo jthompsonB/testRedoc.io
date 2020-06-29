@@ -1,0 +1,26 @@
+required:
+  - approved
+type: object
+properties:
+  updated:
+    type: boolean
+  usersNotified:
+    type: array
+    items:
+      $ref: '#/components/schemas/SendGridUserResponse'
+    nullable: true
+  isFinalTier:
+    type: boolean
+  errors:
+    type: array
+    items:
+      type: string
+    nullable: true
+  approved:
+    type: boolean
+  notes:
+    maxLength: 256
+    minLength: 0
+    type: string
+    nullable: true
+additionalProperties: false

@@ -1,0 +1,22 @@
+type: object
+properties:
+  countSheetID:
+    type: string
+    format: uuid
+  flagID:
+    type: string
+    format: uuid
+    nullable: true
+  flagCode:
+    type: string
+    nullable: true
+  flagDescription:
+    type: string
+    nullable: true
+  itemID:
+    type: string
+    format: uuid
+  placement:
+    type: integer
+    format: int32
+additionalProperties: false

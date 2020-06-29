@@ -1,0 +1,37 @@
+get:
+  tags:
+    - Accounting
+  summary: Gets a listing of accounts and their code data
+  parameters:
+    - name: storeId
+      in: path
+      description: Id of the store that is being fetched
+      required: true
+      schema:
+        type: string
+        description: Id of the store that is being fetched
+        format: uuid
+    - name: codeType
+      in: query
+      description: Type of account
+      schema:
+        type: string
+        description: Type of account
+        nullable: true
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: codeType
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AccountingCode'

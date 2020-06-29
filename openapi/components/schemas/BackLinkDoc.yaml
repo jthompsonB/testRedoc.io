@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  type:
+    type: string
+    nullable: true
+  docNumber:
+    type: string
+    nullable: true
+  line:
+    $ref: '#/components/schemas/BackLinkLine'
+additionalProperties: false

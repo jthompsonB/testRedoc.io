@@ -1,0 +1,23 @@
+type: object
+properties:
+  sessionItemID:
+    type: string
+    format: uuid
+  sessionID:
+    type: string
+    format: uuid
+  itemID:
+    type: string
+    format: uuid
+  count:
+    type: number
+    format: double
+  flagID:
+    type: string
+    format: uuid
+    nullable: true
+  levelID:
+    type: string
+    format: uuid
+    nullable: true
+additionalProperties: false

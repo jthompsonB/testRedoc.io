@@ -1,0 +1,33 @@
+post:
+  tags:
+    - Inventory
+  summary: Gets all Inventory
+  operationId: GetInventory
+  parameters:
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: ''
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '#/components/schemas/InventoryQueryParameters'
+      application/json:
+        schema:
+          $ref: '#/components/schemas/InventoryQueryParameters'
+      text/json:
+        schema:
+          $ref: '#/components/schemas/InventoryQueryParameters'
+      application/*+json:
+        schema:
+          $ref: '#/components/schemas/InventoryQueryParameters'
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Inventory'

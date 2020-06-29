@@ -1,0 +1,10 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  lineNumber:
+    type: integer
+    description: The position this line appears in the back linked document
+    format: int32
+additionalProperties: false

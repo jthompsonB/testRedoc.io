@@ -1,0 +1,32 @@
+put:
+  tags:
+    - PurchaseOrders
+  summary: Approves a Purchase Order Tier
+  parameters:
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: ''
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '#/components/schemas/POTierApprovalPUT'
+      application/json:
+        schema:
+          $ref: '#/components/schemas/POTierApprovalPUT'
+      text/json:
+        schema:
+          $ref: '#/components/schemas/POTierApprovalPUT'
+      application/*+json:
+        schema:
+          $ref: '#/components/schemas/POTierApprovalPUT'
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/POTierApprovalPUTResponse'

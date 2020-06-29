@@ -1,0 +1,11 @@
+type: object
+properties:
+  userId:
+    type: string
+    format: uuid
+  emailSent:
+    type: boolean
+  notified:
+    type: boolean
+    readOnly: true
+additionalProperties: false

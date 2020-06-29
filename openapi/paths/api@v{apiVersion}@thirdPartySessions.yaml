@@ -1,0 +1,102 @@
+get:
+  tags:
+    - ThirdPartySessions
+  summary: Gets all Third Party Sessions
+  operationId: GetTPSessions
+  parameters:
+    - name: Filter
+      in: query
+      description: "### Filter Options:\r\n- code\r\n- dateTime"
+      schema:
+        type: array
+        items:
+          type: string
+        description: "### Filter Options:\r\n- code\r\n- dateTime"
+        nullable: true
+    - name: OrderBy
+      in: query
+      description: "### Order By Options:\r\n- code\r\n- dateTime"
+      schema:
+        type: array
+        items:
+          type: string
+        description: "### Order By Options:\r\n- code\r\n- dateTime"
+        nullable: true
+    - name: PageNumber
+      in: query
+      description: '- PageNumber Starts at 1'
+      schema:
+        type: integer
+        description: '- PageNumber Starts at 1'
+        format: int32
+    - name: PageSize
+      in: query
+      description: "- Default page size: 100\r\n- Max page size: 500"
+      schema:
+        type: integer
+        description: "- Default page size: 100\r\n- Max page size: 500"
+        format: int32
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/TPSessionGet'
+post:
+  tags:
+    - ThirdPartySessions
+  summary: Creates Third Party Sessions
+  parameters:
+    - name: suppressOutput
+      in: query
+      schema:
+        type: boolean
+        default: true
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/TPSession'
+          nullable: true
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/TPSession'
+          nullable: true
+      text/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/TPSession'
+          nullable: true
+      application/*+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/TPSession'
+          nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/TPSessionGet'

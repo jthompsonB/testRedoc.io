@@ -1,0 +1,61 @@
+type: object
+properties:
+  vendorID:
+    type: string
+    format: uuid
+  name:
+    maxLength: 256
+    minLength: 0
+    type: string
+    nullable: true
+  phone:
+    maxLength: 256
+    minLength: 0
+    type: string
+    nullable: true
+  fax:
+    maxLength: 256
+    minLength: 0
+    type: string
+    nullable: true
+  cell:
+    maxLength: 256
+    minLength: 0
+    type: string
+    nullable: true
+  email:
+    maxLength: 256
+    minLength: 0
+    type: string
+    nullable: true
+  street:
+    maxLength: 256
+    minLength: 0
+    type: string
+    nullable: true
+  city:
+    maxLength: 256
+    minLength: 0
+    type: string
+    nullable: true
+  state:
+    maxLength: 256
+    minLength: 0
+    type: string
+    nullable: true
+  zip:
+    maxLength: 256
+    minLength: 0
+    type: string
+    nullable: true
+  country:
+    maxLength: 256
+    minLength: 0
+    type: string
+    nullable: true
+  other:
+    maxLength: 256
+    minLength: 0
+    type: string
+    nullable: true
+additionalProperties: false

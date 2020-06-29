@@ -1,0 +1,11 @@
+required:
+  - code
+  - itemID
+type: object
+properties:
+  itemID:
+    type: string
+    format: uuid
+  code:
+    type: string
+additionalProperties: false

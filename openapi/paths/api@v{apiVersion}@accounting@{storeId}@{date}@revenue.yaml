@@ -1,0 +1,46 @@
+get:
+  tags:
+    - Accounting
+  summary: ''
+  parameters:
+    - name: storeId
+      in: path
+      description: Id of the store that is being fetched
+      required: true
+      schema:
+        type: string
+        description: Id of the store that is being fetched
+        format: uuid
+    - name: date
+      in: path
+      description: Date String in the local time of the database server
+      required: true
+      schema:
+        type: string
+        description: Date String in the local time of the database server
+        format: date-time
+    - name: types
+      in: query
+      description: >-
+        Choose one or more of the following Journal Entry types (Sale, Tax,
+        Tender)
+      schema:
+        type: array
+        items:
+          type: string
+        description: >-
+          Choose one or more of the following Journal Entry types (Sale, Tax,
+          Tender)
+        nullable: true
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AccountingRevenue'

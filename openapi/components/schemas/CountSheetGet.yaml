@@ -1,0 +1,17 @@
+type: object
+properties:
+  countSheetID:
+    type: string
+    format: uuid
+  description:
+    type: string
+    nullable: true
+  storeID:
+    type: string
+    format: uuid
+  countSheetItems:
+    type: array
+    items:
+      $ref: '#/components/schemas/CountSheetItemGet'
+    nullable: true
+additionalProperties: false

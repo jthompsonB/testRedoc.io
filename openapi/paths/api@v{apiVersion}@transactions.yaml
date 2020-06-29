@@ -1,0 +1,101 @@
+get:
+  tags:
+    - Transactions
+  summary: Getting all Transactions
+  operationId: GetTransactions
+  parameters:
+    - name: Filter
+      in: query
+      description: "### Filter Options:\r\n- checkClosed"
+      schema:
+        type: array
+        items:
+          type: string
+        description: "### Filter Options:\r\n- checkClosed"
+        nullable: true
+    - name: PageNumber
+      in: query
+      description: '- PageNumber Starts at 1'
+      schema:
+        type: integer
+        description: '- PageNumber Starts at 1'
+        format: int32
+    - name: PageSize
+      in: query
+      description: "- Default page size: 100\r\n- Max page size: 500"
+      schema:
+        type: integer
+        description: "- Default page size: 100\r\n- Max page size: 500"
+        format: int32
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Transaction'
+post:
+  tags:
+    - Transactions
+  summary: Creates or Updates Transactions
+  description: "If inserting a new record it is highly recommended that you provide a ThirdPartyId which should correspond\r\nto the ID your system uses to uniquely identify the transaction. If the ThirdPartyId and / or ThirdPartyLineId wasn't\r\nprovided the API will auto create one for you."
+  parameters:
+    - name: suppressOutput
+      in: query
+      description: "Default: true\r\nIf true the api will not respond with transactions created or updated in the response. Errors are still shown if applicable."
+      schema:
+        type: boolean
+        description: "Default: true\r\nIf true the api will not respond with transactions created or updated in the response. Errors are still shown if applicable."
+        default: true
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: ''
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
+          description: ''
+          nullable: true
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
+          description: ''
+          nullable: true
+      text/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
+          description: ''
+          nullable: true
+      application/*+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
+          description: ''
+          nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Transaction'

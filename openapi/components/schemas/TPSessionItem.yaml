@@ -1,0 +1,31 @@
+required:
+  - counted
+  - item
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  flag:
+    type: string
+    nullable: true
+  device:
+    type: string
+    nullable: true
+  dateTime:
+    type: string
+    format: date-time
+  item:
+    $ref: '#/components/schemas/TPItem'
+  counted:
+    type: number
+    format: double
+  countedWeight:
+    $ref: '#/components/schemas/TPGenericCount'
+  countedVolume:
+    $ref: '#/components/schemas/TPGenericCount'
+  fullWeight:
+    $ref: '#/components/schemas/TPGenericCount'
+  tareWeight:
+    $ref: '#/components/schemas/TPGenericCount'
+additionalProperties: false

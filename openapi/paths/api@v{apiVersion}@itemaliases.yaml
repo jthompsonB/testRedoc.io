@@ -1,0 +1,50 @@
+post:
+  tags:
+    - ItemAliases
+  summary: Adding Item Aliases
+  parameters:
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: ''
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemAliasCreateRequest'
+          description: ''
+          nullable: true
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemAliasCreateRequest'
+          description: ''
+          nullable: true
+      text/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemAliasCreateRequest'
+          description: ''
+          nullable: true
+      application/*+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemAliasCreateRequest'
+          description: ''
+          nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/ItemAliasCreateResponse'

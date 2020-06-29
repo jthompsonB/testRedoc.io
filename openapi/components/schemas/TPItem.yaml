@@ -1,0 +1,32 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  upc:
+    type: string
+    nullable: true
+  sku:
+    type: string
+    nullable: true
+  description:
+    type: string
+    nullable: true
+  category:
+    type: string
+    nullable: true
+  subCategory:
+    type: string
+    nullable: true
+  retail:
+    type: number
+    format: double
+    nullable: true
+  unit:
+    type: string
+    nullable: true
+  manufacturer:
+    $ref: '#/components/schemas/TPManufacturer'
+  vendor:
+    $ref: '#/components/schemas/TPVendor'
+additionalProperties: false

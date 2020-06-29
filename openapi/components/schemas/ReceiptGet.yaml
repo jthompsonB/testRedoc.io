@@ -1,0 +1,92 @@
+type: object
+properties:
+  commdocID:
+    type: string
+    format: uuid
+  thirdPartyID:
+    type: string
+    nullable: true
+  docNumber:
+    type: string
+    nullable: true
+  reference:
+    type: string
+    nullable: true
+  description:
+    type: string
+    nullable: true
+  instructions:
+    type: string
+    nullable: true
+  notes:
+    type: string
+    nullable: true
+  lines:
+    type: array
+    items:
+      $ref: '#/components/schemas/ReceiptLineGet'
+    nullable: true
+  vendor:
+    type: object
+    additionalProperties: false
+    nullable: true
+  store:
+    type: object
+    additionalProperties: false
+    nullable: true
+  committed:
+    type: string
+    format: date-time
+    nullable: true
+  committedByUser:
+    type: object
+    additionalProperties: false
+    nullable: true
+  paid:
+    type: boolean
+  createdByUser:
+    type: object
+    additionalProperties: false
+    nullable: true
+  created:
+    type: string
+    format: date-time
+  lastUpdated:
+    type: string
+    format: date-time
+  totalAmount:
+    type: number
+    format: double
+  store2:
+    type: object
+    additionalProperties: false
+    nullable: true
+  committed2:
+    type: string
+    format: date-time
+    nullable: true
+  committed2ByUser:
+    type: object
+    additionalProperties: false
+    nullable: true
+  bill:
+    type: string
+    format: date-time
+    nullable: true
+  due:
+    type: string
+    format: date-time
+    nullable: true
+  overDue:
+    type: string
+    format: date-time
+    nullable: true
+  backOrdered:
+    type: boolean
+  canceled:
+    type: boolean
+  buyer:
+    type: object
+    additionalProperties: false
+    nullable: true
+additionalProperties: false

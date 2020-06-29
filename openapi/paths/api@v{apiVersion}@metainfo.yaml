@@ -1,0 +1,18 @@
+get:
+  tags:
+    - MetaInfo
+  summary: Get all Meta Information for YDI Interface
+  description: "In Yellow Dog the user is able to configure the Names that are used on buttons to make the user interface more friendly for their particular use. This endpoint will display the values of these name changes.\r\n\r\nCommon examples of this are:\r\n- Dimension 1 is named Size in the Yellow Dog Interface, Dimension 1 (Size) will be index 0 of the dimensions array.\r\n- Flag is named Location"
+  parameters:
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MetaInfo'

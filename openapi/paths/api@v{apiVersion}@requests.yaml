@@ -1,0 +1,30 @@
+post:
+  tags:
+    - Requests
+  summary: >-
+    Creates and commits a Request to be used in the Purchasing Document
+    Workflow.
+  parameters:
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: Object of the Request to be created
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '#/components/schemas/RequestCreate'
+      application/json:
+        schema:
+          $ref: '#/components/schemas/RequestCreate'
+      text/json:
+        schema:
+          $ref: '#/components/schemas/RequestCreate'
+      application/*+json:
+        schema:
+          $ref: '#/components/schemas/RequestCreate'
+  responses:
+    '200':
+      description: Success

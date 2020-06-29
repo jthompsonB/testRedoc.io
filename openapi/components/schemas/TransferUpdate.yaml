@@ -1,0 +1,21 @@
+type: object
+properties:
+  due:
+    type: string
+    format: date-time
+    nullable: true
+  reference:
+    type: string
+    nullable: true
+  description:
+    type: string
+    nullable: true
+  instructions:
+    type: string
+    nullable: true
+  notes:
+    type: string
+    nullable: true
+  commit:
+    type: boolean
+additionalProperties: false

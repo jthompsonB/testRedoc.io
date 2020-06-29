@@ -1,0 +1,64 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  docNumber:
+    type: string
+    nullable: true
+  date:
+    type: string
+    format: date-time
+  paid:
+    type: boolean
+  prepaid:
+    type: boolean
+  paymentDue:
+    type: string
+    format: date-time
+    nullable: true
+  billed:
+    type: string
+    format: date-time
+    nullable: true
+  committed:
+    type: string
+    format: date-time
+  created:
+    type: string
+    format: date-time
+  lastUpdated:
+    type: string
+    format: date-time
+  reference:
+    type: string
+    nullable: true
+  description:
+    type: string
+    nullable: true
+  instructions:
+    type: string
+    nullable: true
+  notes:
+    type: string
+    nullable: true
+  totalAmount:
+    type: number
+    format: double
+  currencyCode:
+    type: string
+    nullable: true
+  committedByUser:
+    $ref: '#/components/schemas/AccountingUser'
+  createdByUser:
+    $ref: '#/components/schemas/AccountingUser'
+  vendor:
+    $ref: '#/components/schemas/AccountingVendor'
+  store:
+    $ref: '#/components/schemas/AccountingStore'
+  lines:
+    type: array
+    items:
+      $ref: '#/components/schemas/AccountingLine'
+    nullable: true
+additionalProperties: false

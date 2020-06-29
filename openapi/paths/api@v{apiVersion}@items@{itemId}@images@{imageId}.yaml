@@ -1,0 +1,77 @@
+delete:
+  tags:
+    - Items
+  summary: Deletes an item's image
+  parameters:
+    - name: itemId
+      in: path
+      description: Item Id
+      required: true
+      schema:
+        type: string
+        description: Item Id
+        format: uuid
+    - name: imageId
+      in: path
+      description: Attached File Id
+      required: true
+      schema:
+        type: string
+        description: Attached File Id
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+patch:
+  tags:
+    - Items
+  summary: Updates the Description of an Items Attached File
+  parameters:
+    - name: itemId
+      in: path
+      description: Item Id
+      required: true
+      schema:
+        type: string
+        description: Item Id
+        format: uuid
+    - name: imageId
+      in: path
+      description: Attached File Id
+      required: true
+      schema:
+        type: string
+        description: Attached File Id
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: New Description of the Attached File
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '#/components/schemas/AttachedFileMutation'
+      application/json:
+        schema:
+          $ref: '#/components/schemas/AttachedFileMutation'
+      text/json:
+        schema:
+          $ref: '#/components/schemas/AttachedFileMutation'
+      application/*+json:
+        schema:
+          $ref: '#/components/schemas/AttachedFileMutation'
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AttachedFile'

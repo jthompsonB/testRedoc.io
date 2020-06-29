@@ -1,0 +1,17 @@
+required:
+  - code
+  - itemID
+type: object
+properties:
+  itemAliasID:
+    type: string
+    format: uuid
+    nullable: true
+  created:
+    type: boolean
+  itemID:
+    type: string
+    format: uuid
+  code:
+    type: string
+additionalProperties: false

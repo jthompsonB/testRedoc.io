@@ -1,0 +1,12 @@
+required:
+  - count
+  - itemID
+type: object
+properties:
+  itemID:
+    type: string
+    format: uuid
+  count:
+    type: number
+    format: double
+additionalProperties: false

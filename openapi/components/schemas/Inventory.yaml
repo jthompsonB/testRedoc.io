@@ -1,0 +1,11 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  stores:
+    type: array
+    items:
+      $ref: '#/components/schemas/StoreInventory'
+    nullable: true
+additionalProperties: false

@@ -1,0 +1,12 @@
+type: object
+properties:
+  currentTier:
+    type: integer
+    format: int32
+    nullable: true
+  approvalStatuses:
+    type: array
+    items:
+      $ref: '#/components/schemas/CommdocApprovalStatus'
+    nullable: true
+additionalProperties: false

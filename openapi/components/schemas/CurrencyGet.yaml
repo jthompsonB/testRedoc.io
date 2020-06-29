@@ -1,0 +1,18 @@
+type: object
+properties:
+  currencyID:
+    type: string
+    format: uuid
+  currencyCode:
+    type: string
+    nullable: true
+  date:
+    type: string
+    format: date-time
+  exchangeRate:
+    type: number
+    format: double
+  lastUpdated:
+    type: string
+    format: date-time
+additionalProperties: false

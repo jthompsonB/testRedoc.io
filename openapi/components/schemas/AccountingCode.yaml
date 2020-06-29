@@ -1,0 +1,17 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  description:
+    type: string
+    nullable: true
+  type:
+    type: string
+    nullable: true
+  placement:
+    type: integer
+    format: int32
+  store:
+    $ref: '#/components/schemas/AccountingCodeStore'
+additionalProperties: false

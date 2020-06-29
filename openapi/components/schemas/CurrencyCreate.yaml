@@ -1,0 +1,20 @@
+required:
+  - currencyCode
+  - date
+  - exchangeRate
+type: object
+properties:
+  currencyID:
+    type: string
+    format: uuid
+  currencyCode:
+    maxLength: 256
+    minLength: 0
+    type: string
+  date:
+    type: string
+    format: date-time
+  exchangeRate:
+    type: number
+    format: double
+additionalProperties: false

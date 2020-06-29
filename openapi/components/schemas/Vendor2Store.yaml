@@ -1,0 +1,31 @@
+type: object
+properties:
+  vendorID:
+    type: string
+    format: uuid
+  storeId:
+    type: string
+    format: uuid
+  available:
+    type: boolean
+  beanCode:
+    maxLength: 256
+    minLength: 0
+    type: string
+    nullable: true
+  taxNumber:
+    maxLength: 256
+    minLength: 0
+    type: string
+    nullable: true
+  terms:
+    maxLength: 256
+    minLength: 0
+    type: string
+    nullable: true
+  reference1:
+    maxLength: 256
+    minLength: 0
+    type: string
+    nullable: true
+additionalProperties: false

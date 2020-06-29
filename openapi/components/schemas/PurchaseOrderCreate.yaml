@@ -1,0 +1,62 @@
+required:
+  - docNumber
+  - lines
+  - store
+  - totalAmount
+  - vendor
+type: object
+properties:
+  commdocID:
+    type: string
+    format: uuid
+  thirdPartyID:
+    type: string
+    nullable: true
+  docNumber:
+    type: string
+  totalAmount:
+    type: number
+    format: double
+  lines:
+    type: array
+    items:
+      $ref: '#/components/schemas/PurchaseOrderLinesCreate'
+  due:
+    type: string
+    format: date-time
+    default: '1911-11-11T00:00:00.0000000'
+    nullable: true
+  overDue:
+    type: string
+    format: date-time
+    default: '1911-11-11T00:00:00.0000000'
+    nullable: true
+  reference:
+    type: string
+    nullable: true
+  description:
+    type: string
+    nullable: true
+  instructions:
+    type: string
+    nullable: true
+  notes:
+    type: string
+    nullable: true
+  backOrdered:
+    type: boolean
+  canceled:
+    type: boolean
+  invoicedEDI:
+    type: boolean
+  committed:
+    type: string
+    format: date-time
+    nullable: true
+  buyer:
+    $ref: '#/components/schemas/GenericObject'
+  vendor:
+    $ref: '#/components/schemas/GenericObject'
+  store:
+    $ref: '#/components/schemas/GenericObject'
+additionalProperties: false

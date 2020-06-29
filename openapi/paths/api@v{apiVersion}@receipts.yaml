@@ -1,0 +1,61 @@
+get:
+  tags:
+    - Receipts
+  summary: Gets Receipts
+  operationId: GetReceipts
+  parameters:
+    - name: Filter
+      in: query
+      description: "### Filter Options:\r\n- docNumber\r\n- committed\r\n- lastUpdated\r\n- vendor"
+      schema:
+        type: array
+        items:
+          type: string
+        description: "### Filter Options:\r\n- docNumber\r\n- committed\r\n- lastUpdated\r\n- vendor"
+        nullable: true
+    - name: Expand
+      in: query
+      description: "### Expand Options:\r\n- Items\r\n- Stores\r\n- Users\r\n- Vendors"
+      schema:
+        type: array
+        items:
+          type: string
+        description: "### Expand Options:\r\n- Items\r\n- Stores\r\n- Users\r\n- Vendors"
+        nullable: true
+    - name: OrderBy
+      in: query
+      description: "### Order By Options:\r\n- committed\r\n- docNumber\r\n- lastUpdated"
+      schema:
+        type: array
+        items:
+          type: string
+        description: "### Order By Options:\r\n- committed\r\n- docNumber\r\n- lastUpdated"
+        nullable: true
+    - name: PageNumber
+      in: query
+      description: '- PageNumber Starts at 1'
+      schema:
+        type: integer
+        description: '- PageNumber Starts at 1'
+        format: int32
+    - name: PageSize
+      in: query
+      description: "- Default page size: 100\r\n- Max page size: 500"
+      schema:
+        type: integer
+        description: "- Default page size: 100\r\n- Max page size: 500"
+        format: int32
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/ReceiptGet'

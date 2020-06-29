@@ -1,0 +1,24 @@
+type: object
+properties:
+  attachedFileID:
+    type: string
+    format: uuid
+    nullable: true
+  ownerID:
+    type: string
+    format: uuid
+  description:
+    type: string
+    nullable: true
+  fileData:
+    type: string
+    nullable: true
+  isPicture:
+    type: boolean
+  originalFile:
+    type: string
+    nullable: true
+  imageURL:
+    type: string
+    nullable: true
+additionalProperties: false

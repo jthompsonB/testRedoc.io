@@ -1,0 +1,9 @@
+type: object
+properties:
+  itemID:
+    type: string
+    format: uuid
+  quantity:
+    type: number
+    format: double
+additionalProperties: false

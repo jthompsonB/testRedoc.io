@@ -1,0 +1,60 @@
+get:
+  tags:
+    - CountSheets
+  summary: Getting a Count Sheet by Id
+  parameters:
+    - name: id
+      in: path
+      description: CountSheet Id
+      required: true
+      schema:
+        type: string
+        description: CountSheet Id
+        format: uuid
+    - name: Expand
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        nullable: true
+    - name: Filter
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        nullable: true
+    - name: OrderBy
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        nullable: true
+    - name: PageNumber
+      in: query
+      description: '- PageNumber Starts at 1'
+      schema:
+        type: integer
+        description: '- PageNumber Starts at 1'
+        format: int32
+    - name: PageSize
+      in: query
+      description: "- Default page size: 100\r\n- Max page size: 500"
+      schema:
+        type: integer
+        description: "- Default page size: 100\r\n- Max page size: 500"
+        format: int32
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CountSheetGet'

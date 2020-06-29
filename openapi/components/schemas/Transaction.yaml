@@ -1,0 +1,43 @@
+required:
+  - checkClosed
+  - lines
+  - store
+  - transactionNumber
+type: object
+properties:
+  thirdPartyId:
+    type: string
+    description: >-
+      This field will uniquely identify a transaction and lines that go with the
+      transaction.
+    nullable: true
+  transactionNumber:
+    type: string
+  checkClosed:
+    type: string
+    format: date-time
+  employeeNumber:
+    type: string
+    nullable: true
+  employeeName:
+    type: string
+    nullable: true
+  tender:
+    type: string
+    nullable: true
+  registerNumber:
+    type: string
+    nullable: true
+  registerName:
+    type: string
+    nullable: true
+  reference:
+    type: string
+    nullable: true
+  store:
+    $ref: '#/components/schemas/GenericObject'
+  lines:
+    type: array
+    items:
+      $ref: '#/components/schemas/TransactionLine'
+additionalProperties: false

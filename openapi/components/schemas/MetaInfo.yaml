@@ -1,0 +1,15 @@
+type: object
+properties:
+  store:
+    type: string
+    nullable: true
+  manufacturer:
+    type: string
+    nullable: true
+  vendor:
+    type: string
+    nullable: true
+  flag:
+    type: string
+    nullable: true
+additionalProperties: false

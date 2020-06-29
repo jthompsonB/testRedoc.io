@@ -1,0 +1,208 @@
+post:
+  tags:
+    - Transfers
+  summary: Add Additional lines to an existing Transfer that has not been committed
+  parameters:
+    - name: id
+      in: path
+      description: CommDoc Id of Transfer
+      required: true
+      schema:
+        type: string
+        description: CommDoc Id of Transfer
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: new lines to be added to Transfer
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommDocLineCreate'
+          description: new lines to be added to Transfer
+          nullable: true
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommDocLineCreate'
+          description: new lines to be added to Transfer
+          nullable: true
+      text/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommDocLineCreate'
+          description: new lines to be added to Transfer
+          nullable: true
+      application/*+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommDocLineCreate'
+          description: new lines to be added to Transfer
+          nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        text/plain:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/CommdocLine'
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/CommdocLine'
+        text/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/CommdocLine'
+delete:
+  tags:
+    - Transfers
+  summary: Delete existing lines from a Transfer
+  parameters:
+    - name: id
+      in: path
+      description: CommDoc Id of Transfer
+      required: true
+      schema:
+        type: string
+        description: CommDoc Id of Transfer
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: unique identifiers of lines to be deleted
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: unique identifiers of lines to be deleted
+          nullable: true
+      application/json:
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: unique identifiers of lines to be deleted
+          nullable: true
+      text/json:
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: unique identifiers of lines to be deleted
+          nullable: true
+      application/*+json:
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: unique identifiers of lines to be deleted
+          nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        text/plain:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/CommdocLine'
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/CommdocLine'
+        text/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/CommdocLine'
+patch:
+  tags:
+    - Transfers
+  summary: Updates existing lines of a given Transfer
+  parameters:
+    - name: id
+      in: path
+      description: CommDoc Id of Transfer
+      required: true
+      schema:
+        type: string
+        description: CommDoc Id of Transfer
+        format: uuid
+    - name: apiVersion
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: Any alterations to a Transfer
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommDocLineUpdate'
+          description: Any alterations to a Transfer
+          nullable: true
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommDocLineUpdate'
+          description: Any alterations to a Transfer
+          nullable: true
+      text/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommDocLineUpdate'
+          description: Any alterations to a Transfer
+          nullable: true
+      application/*+json:
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommDocLineUpdate'
+          description: Any alterations to a Transfer
+          nullable: true
+  responses:
+    '200':
+      description: Success
+      content:
+        text/plain:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/CommdocLine'
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/CommdocLine'
+        text/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/CommdocLine'
